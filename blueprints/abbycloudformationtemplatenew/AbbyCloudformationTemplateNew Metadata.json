@@ -1,0 +1,322 @@
+{
+    "any_group_can_deploy": true,
+    "auto_historical_resources": false,
+    "deployment_items": [
+        {
+            "action_name": "Cloud Formation Build",
+            "continue_on_failure": false,
+            "deploy_seq": 1,
+            "description": null,
+            "enabled_environments": [],
+            "execute_in_parallel": false,
+            "id": "BDI-l8fpke5d",
+            "name": "Cloud Formation Build",
+            "run_on_scale_up": false,
+            "show_on_order_form": false,
+            "tier_type": "plugin"
+        }
+    ],
+    "description": null,
+    "favorited": false,
+    "icon": "new_0X6xtPv",
+    "id": "BP-1y7mk27h",
+    "is_manageable": true,
+    "is_orderable": true,
+    "labels": [
+        {
+            "color": null,
+            "id": "TAG-6c33561v",
+            "image": null,
+            "name": "CloudFormation",
+            "sequence": 0
+        }
+    ],
+    "last_updated": "2023-09-25",
+    "management_actions": [],
+    "maximum_version_required": "",
+    "minimum_version_required": "8.6",
+    "name": "AbbyCloudformationTemplateNew",
+    "parameters": [
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "Management Account ID (Parent)",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "Account Id",
+            "name": "cft_30_AccountId",
+            "options": [
+                "548575475449"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": true,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "Name of the Role to be created",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "Role Name",
+            "name": "cft_30_RoleName",
+            "options": [
+                "abbyrolecloudformation"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": true,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "A list of the IDs of Environments allowed for the CFT",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [
+                {
+                    "controlling-field": {
+                        "name": "cft_allowed_env_ids"
+                    },
+                    "custom-field-options": [],
+                    "dependency-type": "REGENOPTIONS",
+                    "dependent-field": {
+                        "name": "cft_env_id"
+                    },
+                    "maximum": null,
+                    "minimum": null,
+                    "regex": ""
+                }
+            ],
+            "global_options": [],
+            "label": "Allowed Environments",
+            "name": "cft_allowed_env_ids",
+            "options": [
+                "3"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": false,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": true,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for CloudFormation to create the stack.",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "CloudFormation Capabilities",
+            "name": "cft_capabilities",
+            "options": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM",
+                "CAPABILITY_AUTO_EXPAND"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": false,
+            "show_as_attribute": false,
+            "show_on_servers": true,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "The ID of the Connection Info for Source Control",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "ConnectionInfo ID",
+            "name": "cft_conn_info_id",
+            "options": [
+                "2"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": false,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "AWS Environment",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [
+                {
+                    "controlling-field": {
+                        "name": "cft_allowed_env_ids"
+                    },
+                    "custom-field-options": [],
+                    "dependency-type": "REGENOPTIONS",
+                    "dependent-field": {
+                        "name": "cft_env_id"
+                    },
+                    "maximum": null,
+                    "minimum": null,
+                    "regex": ""
+                }
+            ],
+            "field_dependency_dependent_set": [],
+            "gen_options_hooks": [
+                {
+                    "enabled": true,
+                    "name": "Generate options for 'cft_env_id'"
+                }
+            ],
+            "global_options": [],
+            "label": "Environment",
+            "name": "cft_env_id",
+            "options": [],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": false,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "Failure Behavior for CloudFormation Stack Deployment",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "CloudFormation Failure Behavior",
+            "name": "cft_fail_behavior",
+            "options": [
+                "DO_NOTHING",
+                "ROLLBACK",
+                "DELETE"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": false,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "Name of the CloudFormation Stack",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "CloudFormation Stack Name",
+            "name": "cft_stack_name",
+            "options": [],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": true,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "The URL where the CFT is located in Source Control",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "CloudFormation URL",
+            "name": "cft_url",
+            "options": [
+                "https://raw.githubusercontent.com/abudruk/abbyrepo/main/CloudformationTemplate.json"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": false,
+            "type": "STR",
+            "value_pattern_string": null
+        },
+        {
+            "allow_multiple": false,
+            "available_all_servers": false,
+            "constraints": "Unconstrained",
+            "description": "CloudFormation Template Contents",
+            "destination": "Resource",
+            "field_dependency_controlling_set": [],
+            "field_dependency_dependent_set": [],
+            "global_options": [],
+            "label": "CloudFormation Template",
+            "name": "cloud_formation_template",
+            "options": [
+                "{\n    \"AWSTemplateFormatVersion\": \"2010-09-09\",\n    \"Description\": \"Cloudformation Template to allow your AWS Account(s) to access Cloudbolt Application\",\n    \"Parameters\": {\n        \"RoleName\": {\n            \"Description\": \"Name of the Role to be created\",\n            \"Type\": \"String\",\n            \"Default\": \"abbyrolecloudformation\"\n        },\n        \"AccountId\": {\n            \"Description\": \"Management Account ID (Parent)\",\n            \"Type\": \"String\",\n            \"Default\": \"548575475449\"\n        }\n    },\n    \"Resources\": {\n        \"CloudboltCrossAcctRole\": {\n            \"Type\": \"AWS::IAM::Role\",\n            \"Description\": \"Cross Account Role for Cloudbolt Application Access\",\n            \"Properties\": {\n                \"RoleName\": {\n                    \"Ref\": \"RoleName\"\n                },\n                \"AssumeRolePolicyDocument\": {\n                    \"Version\": \"2012-10-17\",\n                    \"Statement\": [\n                        {\n                            \"Effect\": \"Allow\",\n                            \"Principal\": {\n                                \"AWS\": {\n                                    \"Fn::Join\": [\n                                        \"\",\n                                        [\n                                            \"arn:aws:iam::\",{\"Ref\": \"AccountId\"},\":root\"\n                                        ]\n                                    ]\n                                }\n                            },\n                            \"Action\": [\"sts:AssumeRole\", \"sts:SetSourceIdentity\", \"sts:TagSession\"]\n                        }\n                    ]\n                },\n                \"Path\": \"/\",\n                \"Policies\": [\n                    {\n                        \"PolicyName\": \"Cloudbolt-CrossAccountAccessRolePolicy\",\n                        \"PolicyDocument\": {\n                            \"Version\": \"2012-10-17\",\n                            \"Statement\": [\n                                {\n                                    \"Action\": [\n                                       \"s3:*\"\n                                    ],\n                                    \"Effect\": \"Allow\",\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Action\": [\n                                       \"cloudformation:*\"\n                                    ],\n                                    \"Effect\": \"Allow\",\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Action\": [\n                                       \"elasticache:*\"\n                                    ],\n                                    \"Effect\": \"Allow\",\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"ecs:*\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"iam:CreateServiceLinkedRole\",\n                                        \"iam:CreateRole\",\n                                        \"iam:GetRole\",\n                                        \"iam:PassRole\",\n                                        \"iam:AttachRolePolicy\",\n                                        \"iam:listAttachedRolePolicies\",\n                                        \"iam:UntagPolicy\",\n                                        \"iam:PutRolePolicy\",\n                                        \"iam:UpdateRole\",\n                                        \"iam:ListRoles\",\n                                        \"iam:DeleteRolePolicy\",\n                                        \"iam:AddRoleToInstanceProfile\",\n                                        \"iam:GetPolicy\",\n                                        \"iam:ListRolePolicies\",\n                                        \"iam:ListPolicies\",\n                                        \"iam:DeleteRole\",\n                                        \"iam:GetRolePolicy\",\n                                        \"iam:CreatePolicy\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"ec2:*\",\n                                        \"autoscaling:*\",\n                                        \"ec2-instance-connect:*\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"resource-groups:ListGroups\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"pricing:GetProducts\"\n                                    ],\n                                    \"Resource\": [\n                                        \"*\"\n                                    ]\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"rds:*\"\n                                    ],\n                                    \"Resource\": [\n                                        \"*\"\n                                    ]\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"ds:CreateComputer\",\n                                        \"ds:CreateSnapshot\",\n                                        \"ds:DescribeDirectories\",\n                                        \"ds:DescribeSnapshots\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"fsx:*\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"elasticfilesystem:CreateFileSystem\",\n                                        \"elasticfilesystem:DescribeFileSystems\",\n                                        \"elasticfilesystem:DeleteFileSystem\",\n                                        \"elasticfilesystem:CreateMountTarget\",\n                                        \"elasticfilesystem:DeleteMountTarget\",\n                                        \"elasticfilesystem:DescribeMountTargets\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                        \"eks:*\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                       \"route53:*\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                       \"redshift:*\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                },\n                                {\n                                    \"Effect\": \"Allow\",\n                                    \"Action\": [\n                                       \"lambda:*\"\n                                    ],\n                                    \"Resource\": \"*\"\n                                } \n                            ]\n                        }\n                    }\n                ]\n            }\n        }\n    },\n    \"Outputs\": {\n        \"CloudboltRoleARN\": {\n            \"Description\": \"Role ARN for Cloudbolt Resource Handler Configuration\",\n            \"Value\": {\n                \"Fn::GetAtt\": [\n                    \"CloudboltCrossAcctRole\",\n                    \"Arn\"\n                ]\n            }\n        }\n    }\n}"
+            ],
+            "placeholder": null,
+            "relevant_osfamilies": [],
+            "required": true,
+            "show_as_attribute": false,
+            "show_on_servers": false,
+            "type": "CODE",
+            "value_pattern_string": null
+        }
+    ],
+    "resource_name_template": null,
+    "resource_type": {
+        "icon": "",
+        "id": "RT-24r3j65u",
+        "label": "Service",
+        "lifecycle": "ACTIVE",
+        "list_view_columns": [],
+        "name": "service",
+        "plural_label": null
+    },
+    "sequence": 0,
+    "show_recipient_field_on_order_form": false,
+    "teardown_items": [
+        {
+            "action_name": "Cloud Formation Teardown",
+            "continue_on_failure": false,
+            "deploy_seq": -1,
+            "description": null,
+            "enabled_environments": [],
+            "execute_in_parallel": false,
+            "id": "BDI-1t0fh5zt",
+            "name": "Cloud Formation Teardown",
+            "run_on_scale_up": true,
+            "show_on_order_form": false,
+            "tier_type": "teardown_plugin"
+        }
+    ]
+}

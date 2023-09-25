@@ -1,0 +1,14 @@
+{
+    "description": "Used for CloudFormation Builder",
+    "id": "OHK-ei9mztsb",
+    "last_updated": "2023-09-25",
+    "max_retries": 0,
+    "maximum_version_required": "",
+    "minimum_version_required": "8.6",
+    "name": "Cloud Formation Teardown",
+    "resource_technologies": [],
+    "script_filename": "Cloud Formation Teardown Script.py",
+    "shared": true,
+    "target_os_families": [],
+    "type": "CloudBolt Plug-in"
+}
