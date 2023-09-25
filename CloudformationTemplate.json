@@ -5,12 +5,12 @@
         "RoleName": {
             "Description": "Name of the Role to be created",
             "Type": "String",
-            "Default": "Cloudbolt-CrossAccountAccessRole-Child"
+            "Default": "abbyrolecloudformation"
         },
         "AccountId": {
             "Description": "Management Account ID (Parent)",
             "Type": "String",
-            "Default": "XXXXXXXXXXXX"
+            "Default": "548575475449"
         }
     },
     "Resources": {
